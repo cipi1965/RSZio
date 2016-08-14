@@ -10,9 +10,9 @@ import UIKit
 import Alamofire
 
 public struct ImageInfo {
-    let width : Int
-    let height : Int
-    let size : Int
+    let width : NSNumber
+    let height : NSNumber
+    let size : NSNumber
     let mimetype : String
 }
 
@@ -63,7 +63,8 @@ public class RSZio: NSObject {
             switch response.result {
                 case .Success(let JSON):
                     let parsedDictionary = JSON as! NSDictionary
-                    callback(imageinfo: ImageInfo(width: parsedDictionary["width"]!.integerValue, height: parsedDictionary["height"]!.integerValue, size: parsedDictionary["size"]!.integerValue, mimetype: parsedDictionary["format"]!.string))
+                    print(String(format: "%@", parsedDictionary))
+                    callback(imageinfo: ImageInfo(width: parsedDictionary["width"] as! NSNumber, height: parsedDictionary["height"] as! NSNumber, size: parsedDictionary["size"] as! NSNumber, mimetype: parsedDictionary["format"] as! String))
                 case .Failure(let error):
                     callbackError(error: error)
             }

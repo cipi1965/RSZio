@@ -21,20 +21,16 @@ class RSZURLBuilderTests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.builder = nil
         super.tearDown()
     }
 
     func testBase() {
-        let resultURL = try! builder.get()
-        XCTAssertEqual(resultURL, NSURL(string: expectedURL))
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+        var resultURL : NSURL? = nil
         self.measureBlock {
-            // Put the code you want to measure the time of here.
+             resultURL = try! self.builder.get()
         }
+        XCTAssertEqual(resultURL, NSURL(string: expectedURL))
     }
 
 }
