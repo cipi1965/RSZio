@@ -11,6 +11,10 @@
 		A000F31F1D5DEDDA008F333D /* RSZio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A000F3141D5DEDDA008F333D /* RSZio.framework */; };
 		A000F3241D5DEDDA008F333D /* RSZioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000F3231D5DEDDA008F333D /* RSZioTests.swift */; };
 		A000F3321D5DF875008F333D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A000F3311D5DF875008F333D /* Alamofire.framework */; };
+		A000F3361D5E0E4B008F333D /* RSZio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000F3351D5E0E4B008F333D /* RSZio.swift */; };
+		A000F33A1D5E3ADD008F333D /* RSZURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000F3391D5E3ADD008F333D /* RSZURLBuilder.swift */; };
+		A000F33C1D5F8A4A008F333D /* RSZURLBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000F33B1D5F8A4A008F333D /* RSZURLBuilderTests.swift */; };
+		A000F33E1D5FB918008F333D /* RSZioEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000F33D1D5FB918008F333D /* RSZioEnumerations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +35,10 @@
 		A000F3231D5DEDDA008F333D /* RSZioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSZioTests.swift; sourceTree = "<group>"; };
 		A000F3251D5DEDDA008F333D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A000F3311D5DF875008F333D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/RSZio-evrliituasjfzogwtfumfqldxhqm/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		A000F3351D5E0E4B008F333D /* RSZio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSZio.swift; sourceTree = "<group>"; };
+		A000F3391D5E3ADD008F333D /* RSZURLBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSZURLBuilder.swift; sourceTree = "<group>"; };
+		A000F33B1D5F8A4A008F333D /* RSZURLBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSZURLBuilderTests.swift; sourceTree = "<group>"; };
+		A000F33D1D5FB918008F333D /* RSZioEnumerations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSZioEnumerations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,9 @@
 			children = (
 				A000F3171D5DEDDA008F333D /* RSZio.h */,
 				A000F3191D5DEDDA008F333D /* Info.plist */,
+				A000F3351D5E0E4B008F333D /* RSZio.swift */,
+				A000F3391D5E3ADD008F333D /* RSZURLBuilder.swift */,
+				A000F33D1D5FB918008F333D /* RSZioEnumerations.swift */,
 			);
 			path = RSZio;
 			sourceTree = "<group>";
@@ -86,6 +97,7 @@
 			children = (
 				A000F3231D5DEDDA008F333D /* RSZioTests.swift */,
 				A000F3251D5DEDDA008F333D /* Info.plist */,
+				A000F33B1D5F8A4A008F333D /* RSZURLBuilderTests.swift */,
 			);
 			path = RSZioTests;
 			sourceTree = "<group>";
@@ -206,6 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A000F3361D5E0E4B008F333D /* RSZio.swift in Sources */,
+				A000F33A1D5E3ADD008F333D /* RSZURLBuilder.swift in Sources */,
+				A000F33E1D5FB918008F333D /* RSZioEnumerations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A000F3241D5DEDDA008F333D /* RSZioTests.swift in Sources */,
+				A000F33C1D5F8A4A008F333D /* RSZURLBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +338,7 @@
 		A000F3291D5DEDDA008F333D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -337,12 +354,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.cipi1965.RSZio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A000F32A1D5DEDDA008F333D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

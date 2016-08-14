@@ -10,10 +10,13 @@ import XCTest
 @testable import RSZio
 
 class RSZioTests: XCTestCase {
+    var baseURL : String = "http://example.com/image.jpeg"
+    var expectedURL : String = "http://example.com.rsz.io/image.jpeg"
+    var rszioWrapper : RSZio!
     
     override func setUp() {
+        self.rszioWrapper = RSZio(withUrl: NSURL(string: baseURL))
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
@@ -21,16 +24,18 @@ class RSZioTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testBase() {
+        try! rszioWrapper.buildURL { (builder) -> RSZURLBuilder in return builder.invert().polaroid() }
+        print(try! rszioWrapper.builder?.get().absoluteString)
+        //XCTAssertEqual(resultURL, NSURL(string: expectedURL))
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testImageInfo() {
+        try! rszioWrapper.imageInfoAsync({ (imageinfo) in
+            print(imageinfo)
+            }) { (error) in
+                XCTAssert(false)
+                }
     }
     
 }
